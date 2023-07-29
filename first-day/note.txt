@@ -1,0 +1,42 @@
+React Notes :
+
+1. react will override what is inside the root (root means any kind of div[id,class])
+(root created by createElement)
+(replaced by render)
+
+some,stuff,here will get replaced by "first react"
+code:
+<div id="root">
+    <h1 id="title">some</h1>
+    <h1 id="title">stuff</h1>
+    <h1 id="title">here</h1>
+ </div>
+const heading = React.createElement("h1",{id: "tittle",},"First React");
+const root = ReactDOM.createRoot(document.querySelector("#root"));
+root.render(heading);
+
+
+2. smart move
+
+<div id="root"> not rendered </div>
+// if react script fails to load or whatever reason.
+
+
+Async
+When you add the async attribute to your script tag, the fol­low­ing will happen.
+
+<script src="myfile1.js" async></script>
+<script src="myfile2.js" async></script>
+1.Make par­al­lel requests to fetch the files.
+2.Con­tinue pars­ing the doc­u­ment as if it was never interrupted.
+3.Exe­cute the indi­vid­ual scripts the moment the files are downloaded.
+
+Defer
+Defer is very sim­i­lar to async with one major dif­fer­er­ence. Here’s what hap­pens when a browser encoun­ters a script with the defer attribute.
+
+<script src="myfile1.js" defer></script>
+<script src="myfile2.js" defer></script>
+1.Make par­al­lel requests to fetch the indi­vid­ual files.
+2.on­tinue pars­ing the doc­u­ment as if it was never interrupted.
+3.Fin­ish pars­ing the doc­u­ment even if the script files have downloaded.
+4.Exe­cute each script in the order they were encoun­tered in the document.
