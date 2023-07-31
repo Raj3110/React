@@ -1,0 +1,56 @@
+->BIG MISTAKE TO AVOID.
+
+the package-lock.json SHOULD NOT be added to .gitignore. -> (cause while downloading npm it didnt came it came with parcel package.. seprately so always include package-lock.json in github or u might face issues)
+ Instead, I strongly advise:
+
+Add the package-lock.json you to your version control repository
+Use "npm ci" instead of "npm install" when building your application both locally and in your deployment pipeline.
+
+
+-> package.json
+The package.json file is the heart of Node.js system. 
+It is the manifest file of any Node.js project and contains the metadata of the project.
+
+-> package-lock.json - locks version
+package-lock.json is automatically generated for any operations where npm modifies either 
+the node_modules tree, or package.json. It describes the exact tree that was generated, 
+such that subsequent installs are able to generate identical trees, regardless of intermediate 
+dependency updates.
+
+->these files came up with command to initialize install parcel
+
+npm install -D parcel
+// dev dependency
+"devDependencies": {
+        "parcel": "^2.9.3"
+}
+
+npm install parcel
+// global dependency
+
+
+-> ~ (tilde) , ^ (carrat)
+
+(~,^) - automatically will update version 
+
+"parcel": "2.9.3"   <- i want this as fix package (no updates)
+"parcel": "^2.9.3"   <- i want to small version updates if available (ex - 2.9.4) 
+"parcel": "~2.9.3"  <- if i want big version updates (ex - 3.9.0)
+
+
+
+
+"node_modules/@parcel/bundler-default": {
+      "version": "2.9.3",
+      "resolved": "https://registry.npmjs.org/@parcel/bundler-default/-/bundler-default-2.9.3.tgz",
+      "integrity": "sha512-JjJK8dq39/UO/MWI/4SCbB1t/qgpQRFnFDetAAAezQ8oN++b24u1fkMDa/xqQGjbuPmGeTds5zxGgYs7id7PYg==",
+      "dev": true,
+      "dependencies": {
+        "@parcel/diagnostic": "2.9.3",
+        "@parcel/graph": "2.9.3",
+        "@parcel/hash": "2.9.3",
+        "@parcel/plugin": "2.9.3",
+        "@parcel/utils": "2.9.3",
+        "nullthrows": "^1.1.1"
+      },
+}
